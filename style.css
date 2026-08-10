@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+.Nav-Atas {
+    background-color: #0066ff;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 12px 50px;
+}
+
+.Logo img {
+    height: 50px;
+    display: block;
+    border-radius: 50%;
+}
+
+.nav-konten {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-link {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-link a {
+    color: white;
+    text-decoration: none;
+}
+
+.slide-foto {
+    width: 90%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    background-color: #e0e0e0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3)
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+}
+
+.slide.active-slide {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.panah-sebelum,
+.panah-selanjutnya {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.panah-sebelum:hover,
+.panah-selanjutnya:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.panah-sebelum {
+    left: 15px;
+}
+
+.panah-selanjutnya {
+    right: 15px;
+}
+
+.dots-container {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.dot.active {
+    background-color: #ffffff;
+    width: 25px;
+    border-radius: 10px;
+}
+
+/* Container Latar Belakang Foto */
+.hero-section {
+    width: 100%;
+    /* Menggunakan gambar latar belakang (ganti nama file gambar background-mu) */
+    background-image: url('foto6.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px 0;
+    /* Memberi jarak atas dan bawah kotak slider */
+}
