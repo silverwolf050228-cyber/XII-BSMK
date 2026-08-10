@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+
+</head>
+
+<body>
+    <header class="Nav-Atas">
+        <div class="Logo">
+            <img src="Logo12B.jpg" alt="Logo">
+        </div>
+
+        <div class="nav-konten">
+            <ul class="nav-link">
+                <li><a href="#">Home</a></li>
+                <li><a href="student.html">Student</a></li>
+            </ul>
+        </div>
+    </header>
+    <section class="hero-section">
+        <main class="slide-foto">
+            <div class="slider-wrapper" id="sliderWrapper">
+                <div class="slide"><img src="Foto5.jpg" alt="Foto 3 Clone"></div>
+
+                <div class="slide"><img src="Foto1.jpg" alt="foto saat membuat vidio hari guru"></div>
+                <div class="slide"><img src="Foto2.jpg" alt="foto hari guru besama bu uswah"></div>
+                <div class="slide"><img src="Foto3.jpg" alt="foto bersama ulang tahun bu erlita"></div>
+                <div class="slide"><img src="Foto4.jpg" alt="foto bersama ulang tahun bu erlita"></div>
+                <div class="slide"><img src="Foto5.jpg" alt="foto bersama ulang tahun bu erlita"></div>
+
+                <div class="slide"><img src="Foto1.jpg" alt="Foto 1 Clone"></div>
+            </div>
+
+            <button class="panah-sebelum" onclick="changeSlide(-1)">&#10094;</button>
+            <button class="panah-selanjutnya" onclick="changeSlide(1)">&#10095;</button>
+
+            <div class="dots-container">
+                <span class="dot active" onclick="currentDotSlide(1)"></span>
+                <span class="dot" onclick="currentDotSlide(2)"></span>
+                <span class="dot" onclick="currentDotSlide(3)"></span>
+                <span class="dot" onclick="currentDotSlide(4)"></span>
+                <span class="dot" onclick="currentDotSlide(5)"></span>
+
+
+
+                <script src="script.js"></script>
+        </main>
+
+    </section>
+</body>
+
+</html>
