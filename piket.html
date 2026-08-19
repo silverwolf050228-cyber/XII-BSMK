@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadwal Piket Kelas</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS tambahan khusus tampilan daftar piket */
+        .piket-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .piket-header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .piket-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .piket-card {
+            background-color: #f8f9fa;
+            border: 2px solid #0066ff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .piket-card h3 {
+            background-color: #0066ff;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .piket-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .piket-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ddd;
+            color: #555;
+            display: flex;
+            align-items: center;
+        }
+
+        .piket-card li:last-child {
+            border-bottom: none;
+        }
+
+        .piket-card li::before {
+            content: "•";
+            color: #0066ff;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header class="Nav-Atas">
+        <div class="Logo">
+            <img src="logo12B.jpg" alt="Logo">
+        </div>
+
+        <div class="nav-konten">
+            <ul class="nav-link">
+                <!-- Link kembali ke Home -->
+                <li><a href="index.html">Home</a></li>
+                <li><a href="student.html">Student</a></li>
+                <li><a href="piket.html">Piket</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Konten Jadwal Piket -->
+    <main class="piket-container">
+        <div class="piket-header">
+            <h2>Jadwal Piket Kelas</h2>
+            <p>Harap menjalankan tugas piket sesuai hari yang telah ditentukan!</p>
+        </div>
+
+        <div class="piket-grid">
+            <!-- Senin -->
+            <div class="piket-card">
+                <h3>Senin</h3>
+                <ul>
+                    <li>Sidiq</li>
+                    <li>Afifah</li>
+                    <li>Alfin</li>
+                    <li>Amanda</li>
+                </ul>
+            </div>
+
+            <!-- Selasa -->
+            <div class="piket-card">
+                <h3>Selasa</h3>
+                <ul>
+                    <li>Deva</li>
+                    <li>Gabriel</li>
+                    <li>Halsa</li>
+                    <li>Jordan</li>
+                </ul>
+            </div>
+
+            <!-- Rabu -->
+            <div class="piket-card">
+                <h3>Rabu</h3>
+                <ul>
+                    <li>Kelvin</li>
+                    <li>Kevin</li>
+                    <li>Lodi</li>
+                    <li>Michael</li>
+                </ul>
+            </div>
+
+            <!-- Kamis -->
+            <div class="piket-card">
+                <h3>Kamis</h3>
+                <ul>
+                    <li>Rafli</li>
+                    <li>Rizky</li>
+                    <li>Nazriel</li>
+                    <li>Galih</li>
+                </ul>
+            </div>
+
+            <!-- Jumat -->
+            <div class="piket-card">
+                <h3>Jumat</h3>
+                <ul>
+                    <li>Rafael</li>
+                    <li>Raihan</li>
+                    <li>Rengga</li>
+                    <li>Rizca</li>
+                    <li>Sabian</li>
+                    <li>Zefanya</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
