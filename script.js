@@ -54,7 +54,6 @@ wrapper.addEventListener('transitionend', () => {
 // --- FITUR AUTO-PLAY GALERI ---
 // Atur waktu perpindahan gambar (dalam milidetik, misal 3000 = 3 detik sekali)
 let autoSlideInterval = setInterval(() => {
-    // Kalau sudah mentok di ujung clone terakhir, reset atau lanjut
     if (counter >= slides.length - 1) {
         counter = 1;
         wrapper.style.transition = 'none';
@@ -62,7 +61,7 @@ let autoSlideInterval = setInterval(() => {
     }
     counter++;
     showSlide();
-}, 3000); // Ganti angka 3000 kalau mau lebih cepat (misal 2000) atau lebih lambat (4000)
+}, 1500); // Ganti angka 3000 kalau mau lebih cepat (misal 2000) atau lebih lambat (4000)
 
 // Opsional: Biar kalau kursor mouse diarahkan ke foto, slidernya berhenti sebentar (supaya gampang dilihat)
 const sliderContainer = document.querySelector('.slide-foto');
