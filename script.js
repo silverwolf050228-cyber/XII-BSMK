@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // Tambahan Auto-Play yang Aman
+    // Auto-Play
     let autoSlideInterval = setInterval(() => {
         if (counter >= slides.length - 1) {
             counter = 1;
