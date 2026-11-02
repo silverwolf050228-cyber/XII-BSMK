@@ -1,12 +1,14 @@
-document.addEventListener("DOMContentLoaded", function() {
+window.addEventListener("load", function() {
     const wrapper = document.getElementById('sliderWrapper');
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
 
+    if (!wrapper || slides.length === 0) return;
+
     let counter = 1; 
     const size = 100; 
 
-    // Set posisi awal aman setelah halaman siap
+    // Set posisi awal aman setelah seluruh gambar selesai dimuat
     wrapper.style.transform = `translateX(-${counter * size}%)`;
 
     function showSlide() {
