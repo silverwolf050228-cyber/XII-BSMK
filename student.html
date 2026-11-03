@@ -16,6 +16,9 @@
 
     <div class="header">
       <h2>Murid TKJ Tahun Ajaran 2024/2025</h2>
+      <div>
+        <input type="text" id="studentSearch" placeholder="🔍 Cari nama teman sekelas..." onkeyup="searchStudents()">
+      </div>
     </div>
 
     <div class="nav-konten">
@@ -27,7 +30,7 @@
     </div>
   </header>
 
-  <main class="card-container">
+  <main class="card-container" id="studentList">
     <div class="card">
       <div class="avatar-wrapper">
         <img src="FotoMurid/Sidiq.jpg" alt="Avatar" class="avatar">

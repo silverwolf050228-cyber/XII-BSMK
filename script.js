@@ -67,6 +67,23 @@ window.addEventListener("load", function() {
         showSlide();
     }, 3000);
 
+    function searchStudents() {
+        let input = document.getElementById('studentSearch').value.toLowerCase();
+        let container = document.getElementById('studentList');
+        let cards = container.getElementsByClassName('card');
+
+        for (let i = 0; i < cards.length; i++) {
+            let cardContent = cards[i].innerText || cards[i].textContent;
+            
+            // Jika nama atau teks di card cocok dengan yang diketik, tampilkan; jika tidak, sembunyikan
+            if (cardContent.toLowerCase().indexOf(input) > -1) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+
     const sliderContainer = document.querySelector('.slide-foto');
     if (sliderContainer) {
         sliderContainer.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
