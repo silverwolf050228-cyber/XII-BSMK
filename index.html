@@ -1,67 +1,97 @@
 <!DOCTYPE html>
 <html lang="id">
- 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>XII BSMK - Web Kelas</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XII BSMK - Web Kelas</title>
+<style>
+:root{
+  --bg:#F7F5FA; --panel:#FFFFFF; --line:#E4E0EC;
+  --text:#2B2540; --muted:#6B6680; --primary:#5B4F8A; --accent:#B8AED6;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 24px;border-bottom:1px solid var(--line);background:var(--panel)}
+.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px}
+.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+nav{display:flex;gap:6px}
+nav a{padding:8px 16px;border-radius:999px;color:var(--muted)}
+nav a:hover{color:var(--text)}
+nav a.on{background:var(--primary);color:#fff;font-weight:700}
+main{max-width:960px;margin:0 auto;padding:40px 24px 56px}
+h1{font-size:clamp(30px,6vw,48px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 32px;font-size:18px}
+.show{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel);box-shadow:0 8px 24px rgba(60,50,100,.08)}
+.slide{display:none;position:relative;aspect-ratio:16/9;background:#4F4478}
+.slide.on{display:block}
+.slide img{width:100%;height:100%;object-fit:cover;display:block}
+.slide p{position:absolute;left:0;right:0;bottom:0;margin:0;padding:40px 24px 18px;color:#fff;font-size:18px;background:linear-gradient(to top,rgba(30,24,55,.75),transparent)}
+.ctl{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.9);color:var(--primary);font-size:18px;cursor:pointer}
+.ctl:hover{border-color:var(--accent)}
+#prev{left:12px}#next{right:12px}
+.dots{display:flex;gap:8px;justify-content:center;padding:14px}
+.dots button{width:10px;height:10px;border-radius:50%;border:0;background:#D4CEE3;cursor:pointer;padding:0}
+.dots button.on{background:var(--primary)}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}
+.info a{display:block;border-left:3px solid var(--accent);padding:4px 0 4px 16px}
+.info a:hover{border-left-color:var(--primary)}
+.info h2{margin:0 0 6px;font-size:18px}
+.info p{margin:0;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:20px 24px;text-align:center;color:var(--muted);font-size:14px}
+</style>
 </head>
- 
 <body>
-    <header class="Nav-Atas">
-        <div class="Logo">
-            <img src="logo12B.jpg" alt="Logo">
-        </div>
- 
-        <div class="nav-konten">
-            <ul class="nav-link">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="student.html">Student</a></li>
-                <li><a href="piket.html">Piket</a></li>
-            </ul>
-        </div>
-    </header>
- 
-    <section class="hero-section">
-        <div class="hero-teks">
-            <h1>XII BSMK</h1>
-            <p>Web kelas</p>
-        </div>
- 
-        <main class="slide-foto">
-            <div class="slider-wrapper" id="sliderWrapper">
-                <!-- Clone dari Foto 5 (Paling depan) -->
-                <div class="slide"><img src="foto5.jpg" alt="Foto 5 Clone"></div>
- 
-                <!-- Foto Asli 1 sampai 5 -->
-                <div class="slide"><img src="Foto1.jpg" alt="foto saat membuat vidio hari guru"></div>
-                <div class="slide"><img src="Foto2.jpg" alt="foto hari guru besama bu uswah"></div>
-                <div class="slide"><img src="Foto3.jpg" alt="foto bersama ulang tahun bu erlita"></div>
-                <div class="slide"><img src="foto4.jpg" alt="foto bersama ulang tahun bu erlita"></div>
-                <div class="slide"><img src="foto5.jpg" alt="foto bersama ulang tahun bu erlita"></div>
- 
-                <!-- Clone dari Foto 1 (Paling belakang) -->
-                <div class="slide"><img src="Foto1.jpg" alt="Foto 1 Clone"></div>
-            </div>
- 
-            <button class="panah-sebelum" onclick="changeSlide(-1)" aria-label="Foto sebelumnya">&#10094;</button>
-            <button class="panah-selanjutnya" onclick="changeSlide(1)" aria-label="Foto selanjutnya">&#10095;</button>
- 
-            <div class="dots-container">
-                <span class="dot active" onclick="currentDotSlide(1)"></span>
-                <span class="dot" onclick="currentDotSlide(2)"></span>
-                <span class="dot" onclick="currentDotSlide(3)"></span>
-                <span class="dot" onclick="currentDotSlide(4)"></span>
-                <span class="dot" onclick="currentDotSlide(5)"></span>
-            </div>
-        </main>
-    </section>
- 
-    <script src="script.js"></script>
+<header>
+  <a class="brand" href="index.html"><img src="logo12B.jpg" alt="Logo XII BSMK">XII BSMK</a>
+  <nav aria-label="Menu utama">
+    <a class="on" href="index.html">Home</a>
+    <a href="student.html">Student</a>
+    <a href="piket.html">Piket</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Selamat datang di web kelas XII BSMK</h1>
+  <p class="lead">Tempat kami menyimpan daftar siswa, jadwal piket, dan momen-momen kelas selama di sini.</p>
+
+  <div class="show">
+    <div class="slide on"><img src="Foto1.jpg" alt="Membuat video Hari Guru"><p>Membuat video Hari Guru</p></div>
+    <div class="slide"><img src="Foto2.jpg" alt="Hari Guru bersama Bu Uswah"><p>Hari Guru bersama Bu Uswah</p></div>
+    <div class="slide"><img src="Foto3.jpg" alt="Ulang tahun Bu Erlita"><p>Ulang tahun Bu Erlita</p></div>
+    <div class="slide"><img src="foto4.jpg" alt="Ulang tahun Bu Erlita"><p>Ulang tahun Bu Erlita</p></div>
+    <div class="slide"><img src="foto5.jpg" alt="Momen kelas XII BSMK"><p>Momen kelas XII BSMK</p></div>
+    <button class="ctl" id="prev" aria-label="Foto sebelumnya">&#10094;</button>
+    <button class="ctl" id="next" aria-label="Foto berikutnya">&#10095;</button>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <div class="info">
+    <a href="student.html"><h2>Student</h2><p>Daftar siswa kelas XII BSMK.</p></a>
+    <a href="piket.html"><h2>Piket</h2><p>Cek giliran piket kelas.</p></a>
+  </div>
+</main>
+
+<footer>XII BSMK &middot; Tahun ajaran 2026/2027</footer>
+
+<script>
+(function(){
+  var slides=document.querySelectorAll('.slide'),dots=document.getElementById('dots'),i=0,btns=[];
+  slides.forEach(function(_,n){
+    var b=document.createElement('button');
+    b.setAttribute('aria-label','Foto '+(n+1));
+    b.onclick=function(){go(n)};
+    dots.appendChild(b);btns.push(b);
+  });
+  function go(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,k){s.classList.toggle('on',k===i);btns[k].classList.toggle('on',k===i)});
+  }
+  document.getElementById('prev').onclick=function(){go(i-1)};
+  document.getElementById('next').onclick=function(){go(i+1)};
+  go(0);
+})();
+</script>
 </body>
- 
 </html>
