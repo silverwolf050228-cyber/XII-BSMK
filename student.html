@@ -16,9 +16,10 @@
 
     <div class="header">
       <h2>Murid TKJ Tahun Ajaran 2024/2025</h2>
-      <div>
-        <input type="text" id="studentSearch" placeholder="🔍 Cari nama teman sekelas..." onkeyup="searchStudents()">
+      <div class="search-box-container">
+        <input type="text" id="studentSearch" placeholder="Mencari nama murid..." autocomplete="off">
       </div>
+      <p id="noResult" style="display:none; margin-top:20px; color:#666;">Nama murid ga ada</p>
     </div>
 
     <div class="nav-konten">
