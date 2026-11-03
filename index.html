@@ -4,25 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XII BSMK - Web Kelas</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style3.css">
 <script src="mode.js"></script>
 <style>
-:root{
-  --bg:#F7F5FA; --panel:#FFFFFF; --line:#E4E0EC;
-  --text:#2B2540; --muted:#6B6680; --primary:#5B4F8A; --accent:#B8AED6;
-}
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "Trebuchet MS","Segoe UI",system-ui,sans-serif}
-a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
-header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 24px;border-bottom:1px solid var(--line);background:var(--panel)}
-.brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:18px}
-.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover}
-nav{display:flex;gap:6px}
-nav a{padding:8px 16px;border-radius:999px;color:var(--muted)}
-nav a:hover{color:var(--text)}
-nav a.on{background:var(--primary);color:#fff;font-weight:700}
 main{max-width:960px;margin:0 auto;padding:40px 24px 56px}
-h1{font-size:clamp(30px,6vw,48px);line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
+h1{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-size:clamp(30px,6vw,48px);font-weight:800;line-height:1.1;margin:0 0 12px;letter-spacing:-.02em}
 .lead{color:var(--muted);max-width:56ch;margin:0 0 32px;font-size:18px}
 .show{position:relative;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel);box-shadow:0 8px 24px rgba(60,50,100,.08)}
 .slide{display:none;position:relative;aspect-ratio:16/9;background:#4F4478}
@@ -40,17 +27,18 @@ h1{font-size:clamp(30px,6vw,48px);line-height:1.1;margin:0 0 12px;letter-spacing
 .info a:hover{border-left-color:var(--primary)}
 .info h2{margin:0 0 6px;font-size:18px}
 .info p{margin:0;color:var(--muted)}
-footer{border-top:1px solid var(--line);padding:20px 24px;text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
-<header>
-  <a class="brand" href="index.html"><img src="logo12B.jpg" alt="Logo XII BSMK">XII BSMK</a>
-  <nav aria-label="Menu utama">
-    <a class="on" href="index.html">Home</a>
-    <a href="student.html">Student</a>
-    <a href="piket.html">Piket</a>
-  </nav>
+<header class="Nav-Atas">
+  <div class="Logo"><img src="logo12B.jpg" alt="Logo"></div>
+  <div class="nav-konten">
+    <ul class="nav-link">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="student.html">Student</a></li>
+      <li><a href="piket.html">Piket</a></li>
+    </ul>
+  </div>
 </header>
 
 <main>
@@ -61,8 +49,8 @@ footer{border-top:1px solid var(--line);padding:20px 24px;text-align:center;colo
     <div class="slide on"><img src="Foto1.jpg" alt="Membuat video Hari Guru"><p>Membuat video Hari Guru</p></div>
     <div class="slide"><img src="Foto2.jpg" alt="Hari Guru bersama Bu Uswah"><p>Hari Guru bersama Bu Uswah</p></div>
     <div class="slide"><img src="Foto3.jpg" alt="Ulang tahun Bu Erlita"><p>Ulang tahun Bu Erlita</p></div>
-    <div class="slide"><img src="foto4.jpg" alt="Ulang tahun Bu Erlita"><p>Makan KFC abis event P5</p></div>
-    <div class="slide"><img src="foto5.jpg" alt="Momen kelas XII BSMK"><p>MPLS Pertama XII-B</p></div>
+    <div class="slide"><img src="foto4.jpg" alt="Makan KFC abis event P5"><p>Makan KFC abis event P5</p></div>
+    <div class="slide"><img src="foto5.jpg" alt="MPLS Pertama XII-B"><p>MPLS Pertama XII-B</p></div>
     <button class="ctl" id="prev" aria-label="Foto sebelumnya">&#10094;</button>
     <button class="ctl" id="next" aria-label="Foto berikutnya">&#10095;</button>
     <div class="dots" id="dots"></div>
@@ -74,7 +62,7 @@ footer{border-top:1px solid var(--line);padding:20px 24px;text-align:center;colo
   </div>
 </main>
 
-<footer>XII BSMK &middot; Tahun ajaran 2024/2025</footer>
+<footer class="footer">XII BSMK &middot; Tahun ajaran 2024/2025</footer>
 
 <script>
 (function(){
