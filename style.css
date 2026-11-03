@@ -255,3 +255,60 @@ body {
         transition: none !important;
     }
 }
+
+/* ============ Kartu ulang tahun ============ */
+.card-ultah {
+    position: relative;
+    background-color: #fff7e0;
+    background-image:
+        radial-gradient(circle, #ff5fa2 2px, transparent 2.5px),
+        radial-gradient(circle, #0066ff 2px, transparent 2.5px),
+        radial-gradient(circle, #ffd23f 2.5px, transparent 3px);
+    background-size: 46px 46px, 62px 62px, 38px 38px;
+    background-position: 0 0, 18px 22px, 30px 8px;
+    border: 2px dashed #ff5fa2;
+}
+
+/* Topi ulang tahun */
+.card-ultah::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    right: 18px;
+    width: 46px;
+    height: 40px;
+    background: repeating-linear-gradient(-60deg, #ff5fa2 0 8px, #ffd23f 8px 16px);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+/* Pompom di ujung topi */
+.card-ultah::after {
+    content: "";
+    position: absolute;
+    top: -37px;
+    right: 35px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #ff5fa2;
+}
+
+/* Area teks dibuat polos supaya konfeti tidak mengganggu bacaan */
+.card-ultah .card-content {
+    margin: 0 -2px;
+    padding: 8px 6px 6px;
+    border-radius: 6px;
+    background-color: #fff7e0;
+}
+
+.ultah-badge {
+    display: inline-block;
+    margin: 10px 0 0 4px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    background-color: #ff5fa2;
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
