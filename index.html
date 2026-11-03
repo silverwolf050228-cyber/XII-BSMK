@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-
-
+    <title>XII BSMK - Web Kelas</title>
 </head>
 
 <body>
@@ -24,17 +22,21 @@
             </ul>
         </div>
     </header>
+
     <section class="hero-section">
         <main class="slide-foto">
             <div class="slider-wrapper" id="sliderWrapper">
-                <div class="slide"><img src="Foto5.jpg" alt="Foto 3 Clone"></div>
+                <!-- Clone dari Foto 5 (Paling depan) -->
+                <div class="slide"><img src="foto5.jpg" alt="Foto 5 Clone"></div>
 
+                <!-- Foto Asli 1 sampai 5 -->
                 <div class="slide"><img src="Foto1.jpg" alt="foto saat membuat vidio hari guru"></div>
                 <div class="slide"><img src="Foto2.jpg" alt="foto hari guru besama bu uswah"></div>
                 <div class="slide"><img src="Foto3.jpg" alt="foto bersama ulang tahun bu erlita"></div>
                 <div class="slide"><img src="foto4.jpg" alt="foto bersama ulang tahun bu erlita"></div>
                 <div class="slide"><img src="foto5.jpg" alt="foto bersama ulang tahun bu erlita"></div>
 
+                <!-- Clone dari Foto 1 (Paling belakang) -->
                 <div class="slide"><img src="Foto1.jpg" alt="Foto 1 Clone"></div>
             </div>
 
@@ -48,13 +50,11 @@
                 <span class="dot" onclick="currentDotSlide(4)"></span>
                 <span class="dot" onclick="currentDotSlide(5)"></span>
             </div>
-
-
-
-                <script src="script.js"></script>
         </main>
-
     </section>
+
+    <!-- Script dipindah keluar dari main agar rapi -->
+    <script src="script.js"></script>
 </body>
 
 </html>
