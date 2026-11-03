@@ -7,20 +7,20 @@
     --muted: #5a6785;
     --line: #d9dff0;
 }
-
+ 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
+ 
 body {
     font-family: "Figtree", "Segoe UI", Arial, sans-serif;
     background-color: var(--paper);
     color: var(--ink);
     min-height: 100vh;
 }
-
+ 
 /* ============ Navigasi ============ */
 .Nav-Atas {
     position: sticky;
@@ -32,7 +32,7 @@ body {
     padding: 10px 40px;
     background-color: var(--blue);
 }
-
+ 
 .Logo img {
     display: block;
     height: 44px;
@@ -41,18 +41,18 @@ body {
     border-radius: 50%;
     border: 2px solid #fff;
 }
-
+ 
 .nav-konten {
     display: flex;
     align-items: center;
 }
-
+ 
 .nav-link {
     display: flex;
     gap: 6px;
     list-style: none;
 }
-
+ 
 .nav-link a {
     display: block;
     padding: 8px 16px;
@@ -62,21 +62,21 @@ body {
     font-weight: 600;
     transition: background-color 0.2s ease;
 }
-
+ 
 .nav-link a:hover {
     background-color: rgba(255, 255, 255, 0.18);
 }
-
+ 
 .nav-link a.active {
     background-color: #fff;
     color: var(--blue);
 }
-
+ 
 .nav-link a:focus-visible {
     outline: 3px solid #fff;
     outline-offset: 2px;
 }
-
+ 
 /* ============ Hero & Search ============ */
 .header {
     max-width: 1100px;
@@ -84,7 +84,7 @@ body {
     padding: 56px 24px 8px;
     text-align: left;
 }
-
+ 
 .header h2 {
     font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
     font-size: clamp(2.4rem, 6vw, 4rem);
@@ -93,20 +93,20 @@ body {
     letter-spacing: -0.02em;
     color: var(--ink);
 }
-
+ 
 .header .sub {
     margin-top: 10px;
     font-size: 1.05rem;
     font-weight: 500;
     color: var(--muted);
 }
-
+ 
 .search-box-container {
     position: relative;
     max-width: 520px;
     margin-top: 28px;
 }
-
+ 
 #studentSearch {
     width: 100%;
     padding: 15px 20px 15px 52px;
@@ -123,23 +123,23 @@ body {
     outline: none;
     transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
 }
-
+ 
 #studentSearch::placeholder {
     color: #8a96b3;
 }
-
+ 
 #studentSearch:focus {
     border-color: var(--blue);
     box-shadow: 4px 4px 0 var(--blue);
     transform: translate(-1px, -1px);
 }
-
+ 
 #noResult {
     margin-top: 22px;
     font-weight: 600;
     color: var(--muted);
 }
-
+ 
 /* ============ Daftar Murid ============ */
 .card-container {
     display: grid;
@@ -150,27 +150,27 @@ body {
     padding: 36px 24px 80px;
     animation: rise 0.5s ease-out both;
 }
-
+ 
 @keyframes rise {
     from {
         opacity: 0;
         transform: translateY(14px);
     }
 }
-
+ 
 /* Kemiringan tipis ala foto yearbook yang ditempel */
 .card-container > :nth-child(3n + 1) { transform: rotate(-1.2deg); }
 .card-container > :nth-child(3n + 2) { transform: rotate(0.9deg); }
 .card-container > :nth-child(3n)     { transform: rotate(-0.4deg); }
-
+ 
 .card-container > * {
     transition: transform 0.2s ease;
 }
-
+ 
 .card-container > :hover {
     transform: rotate(0deg) translateY(-4px);
 }
-
+ 
 .card {
     display: flex;
     flex-direction: column;
@@ -184,7 +184,7 @@ body {
         0 1px 0 rgba(11, 27, 58, 0.06),
         0 12px 20px -14px rgba(11, 27, 58, 0.45);
 }
-
+ 
 .avatar-wrapper {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -193,14 +193,14 @@ body {
     border-radius: 3px;
     background-color: #dfe6f7;
 }
-
+ 
 .avatar {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
+ 
 .card-content h3 {
     margin: 0 4px 6px;
     font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
@@ -209,14 +209,14 @@ body {
     line-height: 1.15;
     color: var(--ink);
 }
-
+ 
 .card-content p {
     margin: 0 4px;
     font-size: 0.92rem;
     line-height: 1.45;
     color: var(--muted);
 }
-
+ 
 /* Huruf yang cocok dengan pencarian */
 .hl {
     padding: 0 2px;
@@ -224,7 +224,7 @@ body {
     background-color: var(--mark);
     color: var(--ink);
 }
-
+ 
 /* Kartu yang bisa diklik (Kevin) */
 .card-link {
     display: block;
@@ -232,11 +232,11 @@ body {
     color: inherit;
     border-radius: 8px;
 }
-
+ 
 .card-link .card {
     position: relative;
 }
-
+ 
 .card-link .card::after {
     content: "Buka profil";
     position: absolute;
@@ -249,44 +249,44 @@ body {
     font-size: 0.72rem;
     font-weight: 600;
 }
-
+ 
 .card-link:focus-visible {
     outline: 3px solid var(--blue);
     outline-offset: 4px;
 }
-
+ 
 /* ============ HP ============ */
 @media (max-width: 600px) {
     .Nav-Atas {
         padding: 10px 16px;
     }
-
+ 
     .header {
         padding: 36px 16px 4px;
     }
-
+ 
     .card-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 22px 14px;
         padding: 28px 16px 64px;
     }
-
+ 
     .card-content h3 {
         font-size: 1.1rem;
     }
-
+ 
     .card-content p {
         font-size: 0.85rem;
     }
 }
-
+ 
 @media (prefers-reduced-motion: reduce) {
     * {
         animation: none !important;
         transition: none !important;
     }
 }
-
+ 
 /* ============ Kartu ulang tahun ============ */
 .card-ultah {
     position: relative;
@@ -299,7 +299,7 @@ body {
     background-position: 0 0, 18px 22px, 30px 8px;
     border: 2px dashed #ff5fa2;
 }
-
+ 
 /* Topi ulang tahun */
 .card-ultah::before {
     content: "";
@@ -311,7 +311,7 @@ body {
     background: repeating-linear-gradient(-60deg, #ff5fa2 0 8px, #ffd23f 8px 16px);
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
 }
-
+ 
 /* Pompom di ujung topi */
 .card-ultah::after {
     content: "";
@@ -324,7 +324,7 @@ body {
     background-color: #fff;
     border: 2px solid #ff5fa2;
 }
-
+ 
 /* Area teks dibuat polos supaya konfeti tidak mengganggu bacaan */
 .card-ultah .card-content {
     margin: 0 -2px;
@@ -332,7 +332,7 @@ body {
     border-radius: 6px;
     background-color: #fff7e0;
 }
-
+ 
 .ultah-badge {
     display: inline-block;
     margin: 10px 0 0 4px;
