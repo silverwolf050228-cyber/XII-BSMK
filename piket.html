@@ -5,57 +5,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jadwal Piket Kelas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
-        .piket-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        .piket-header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 56px 24px 8px;
         }
 
-        .piket-header {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
+        .piket-header h2 {
+            font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        .piket-header p {
+            margin-top: 10px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #5a6785;
         }
 
         .piket-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px 22px;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 36px 24px 80px;
+            animation: rise 0.5s ease-out both;
         }
 
+        @keyframes rise {
+            from { opacity: 0; transform: translateY(14px); }
+        }
+
+        /* Kemiringan tipis, sama seperti kartu di halaman Student */
+        .piket-card:nth-child(3n + 1) { transform: rotate(-1.2deg); }
+        .piket-card:nth-child(3n + 2) { transform: rotate(0.9deg); }
+        .piket-card:nth-child(3n)     { transform: rotate(-0.4deg); }
+
         .piket-card {
-            background-color: #f8f9fa;
-            border: 2px solid #0066ff;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+            padding: 18px 18px 14px;
+            background-color: #fff;
+            border: 1px solid #d9dff0;
+            border-radius: 6px;
+            box-shadow:
+                0 1px 0 rgba(11, 27, 58, 0.06),
+                0 12px 20px -14px rgba(11, 27, 58, 0.45);
         }
 
         .piket-card h3 {
-            background-color: #0066ff;
-            color: white;
-            padding: 8px 12px;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            text-align: center;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--ink);
+            font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
         }
 
         .piket-card ul {
             list-style: none;
-            padding: 0;
+            counter-reset: urut;
         }
 
         .piket-card li {
-            padding: 8px 0;
-            border-bottom: 1px solid #ddd;
-            color: #555;
+            counter-increment: urut;
             display: flex;
-            align-items: center;
+            align-items: baseline;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px dashed #d9dff0;
+            font-weight: 500;
+            color: var(--ink);
         }
 
         .piket-card li:last-child {
@@ -63,15 +92,43 @@
         }
 
         .piket-card li::before {
-            content: "•";
-            color: #0066ff;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: 5px;
+            content: counter(urut, decimal-leading-zero);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--blue);
+        }
+
+        /* Kartu hari ini (diisi otomatis oleh script) */
+        .piket-card.hari-ini {
+            transform: rotate(0deg);
+            border: 2px solid var(--ink);
+            box-shadow: 5px 5px 0 var(--ink);
+        }
+
+        .piket-card.hari-ini::after {
+            content: "Hari ini";
+            position: absolute;
+            top: -12px;
+            right: 14px;
+            padding: 4px 11px;
+            border-radius: 999px;
+            background-color: var(--mark);
+            color: var(--ink);
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            .piket-header { padding: 36px 16px 4px; }
+            .piket-grid { padding: 28px 16px 64px; gap: 26px 14px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .piket-grid { animation: none; }
         }
     </style>
 </head>
+
 <body>
     <header class="Nav-Atas">
         <div class="Logo">
@@ -82,71 +139,83 @@
             <ul class="nav-link">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="student.html">Student</a></li>
-                <li><a href="piket.html">Piket</a></li>
+                <li><a href="piket.html" class="active">Piket</a></li>
             </ul>
         </div>
     </header>
 
-    <main class="piket-container">
-        <div class="piket-header">
-            <h2>Jadwal Piket Kelas</h2>
-            <p>WOI PIKET ANAK ANAK ANJING</p>
+    <section class="piket-header">
+        <h2>Jadwal Piket</h2>
+        <p>WOI PIKET ANAK ANAK ANJING</p>
+    </section>
+
+    <main class="piket-grid">
+        <div class="piket-card">
+            <h3>Senin</h3>
+            <ul>
+                <li>Amanda</li>
+                <li>Gabriel</li>
+                <li>Lodi</li>
+                <li>Rafli</li>
+                <li>Rizky</li>
+            </ul>
         </div>
 
-        <div class="piket-grid">
-            <div class="piket-card">
-                <h3>Senin</h3>
-                <ul>
-                    <li>Amanda</li>
-                    <li>Gabriel</li>
-                    <li>Lodi</li>
-                    <li>Rafli</li>
-                    <li>Rizky</li>
-                </ul>
-            </div>
+        <div class="piket-card">
+            <h3>Selasa</h3>
+            <ul>
+                <li>Afifah</li>
+                <li>Deva</li>
+                <li>Jordan</li>
+                <li>Galih</li>
+            </ul>
+        </div>
 
-            <div class="piket-card">
-                <h3>Selasa</h3>
-                <ul>
-                    <li>Afifah</li>
-                    <li>Deva</li>
-                    <li>Jordan</li>
-                    <li>Galih</li>
-                </ul>
-            </div>
+        <div class="piket-card">
+            <h3>Rabu</h3>
+            <ul>
+                <li>Sidiq</li>
+                <li>Rafael</li>
+                <li>Raihan</li>
+                <li>Rengga</li>
+                <li>Rizca</li>
+            </ul>
+        </div>
 
-            <div class="piket-card">
-                <h3>Rabu</h3>
-                <ul>
-                    <li>Sidiq</li>
-                    <li>Rafael</li>
-                    <li>Raihan</li>
-                    <li>Rengga</li>
-                    <li>Rizca</li>
-                </ul>
-            </div>
+        <div class="piket-card">
+            <h3>Kamis</h3>
+            <ul>
+                <li>Alfin</li>
+                <li>Kelvin</li>
+                <li>Halsa</li>
+                <li>Zefanya</li>
+            </ul>
+        </div>
 
-            <div class="piket-card">
-                <h3>Kamis</h3>
-                <ul>
-                    <li>Alfin</li>
-                    <li>Kelvin</li>
-                    <li>Halsa</li>
-                    <li>Zefanya</li>
-                </ul>
-            </div>
-
-            <div class="piket-card">
-                <h3>Jumat</h3>
-                <ul>
-                    <li>Kevin</li>
-                    <li>Michael</li>
-                    <li>Nazriel</li>
-                    <li>Sabian</li>
-                </ul>
-            </div>
+        <div class="piket-card">
+            <h3>Jumat</h3>
+            <ul>
+                <li>Kevin</li>
+                <li>Michael</li>
+                <li>Nazriel</li>
+                <li>Sabian</li>
+            </ul>
         </div>
     </main>
+
+    <script>
+        // Tandai kartu piket untuk hari ini (Senin-Jumat)
+        (function () {
+            const nama = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            const hariIni = nama[new Date().getDay()];
+
+            document.querySelectorAll(".piket-card").forEach(function (card) {
+                if (card.querySelector("h3").textContent.trim() === hariIni) {
+                    card.classList.add("hari-ini");
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
