@@ -16,11 +16,8 @@ function searchStudents() {
     const match = index !== -1;
 
     item.style.display = match ? "" : "none";
-
-    // Yang diawali keyword tampil paling atas, sisanya di bawahnya
     item.style.order = keyword && index > 0 ? 1 : 0;
 
-    // Beri warna pada huruf yang cocok, di posisi mana pun
     if (match && keyword) {
       title.innerHTML =
         name.slice(0, index) +
