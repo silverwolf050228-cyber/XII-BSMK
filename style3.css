@@ -1,0 +1,69 @@
+/* Tema kalem XII BSMK - dipakai index.html, student.html, piket.html */
+:root{
+  --bg:#F7F5FA; --panel:#FFFFFF; --line:#E4E0EC;
+  --text:#2B2540; --muted:#6B6680; --primary:#5B4F8A; --accent:#B8AED6;
+}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "Figtree","Segoe UI",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+ul,h1,h2,h3,p{margin:0;padding:0}
+a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+
+/* Navigasi atas */
+.Nav-Atas{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:12px 24px;background:var(--panel);border-bottom:1px solid var(--line)}
+.Logo img{display:block;width:44px;height:44px;border-radius:50%;object-fit:cover}
+.nav-link{display:flex;gap:6px;list-style:none}
+.nav-link a{display:block;padding:8px 16px;border-radius:999px;color:var(--muted);font-weight:500}
+.nav-link a:hover{color:var(--text)}
+.nav-link a.active{background:var(--primary);color:#fff;font-weight:600}
+
+/* Footer */
+.footer{border-top:1px solid var(--line);padding:20px 24px;text-align:center;color:var(--muted);font-size:14px}
+
+/* Judul halaman (Student dan Piket) */
+.header,.piket-header{max-width:1100px;margin:0 auto;padding:56px 24px 8px}
+.header h2,.piket-header h2{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-size:clamp(2.4rem,6vw,4rem);font-weight:800;line-height:1;letter-spacing:-.02em}
+.header .sub,.piket-header p{margin-top:10px;font-size:1.05rem;font-weight:500;color:var(--muted)}
+
+/* Student */
+.search-box-container{margin-top:24px;max-width:420px}
+#studentSearch{width:100%;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text);font:inherit}
+#studentSearch:focus{outline:2px solid var(--primary);outline-offset:2px;border-color:var(--primary)}
+#noResult{margin-top:14px;color:var(--muted)}
+.card-container{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:30px 22px;max-width:1100px;margin:0 auto;padding:36px 24px 80px}
+.card-container>:nth-child(3n+1){transform:rotate(-1.2deg)}
+.card-container>:nth-child(3n+2){transform:rotate(.9deg)}
+.card-container>:nth-child(3n){transform:rotate(-.4deg)}
+.card-link{display:block}
+.card{height:100%;overflow:hidden;background:var(--panel);border:1px solid var(--line);border-radius:6px;box-shadow:0 1px 0 rgba(43,37,64,.05),0 12px 20px -14px rgba(43,37,64,.35);transition:transform .2s}
+.card:hover{transform:translateY(-3px) rotate(0)}
+.avatar-wrapper{aspect-ratio:1/1;background:#ECE8F4}
+.avatar{display:block;width:100%;height:100%;object-fit:cover}
+.card-content{padding:14px 16px 16px}
+.card-content h3{margin-bottom:4px;font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-.01em}
+.card-content p{color:var(--muted);font-size:.95rem}
+
+/* Piket */
+.piket-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px 22px;max-width:1100px;margin:0 auto;padding:36px 24px 80px;animation:rise .5s ease-out both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.piket-card:nth-child(3n+1){transform:rotate(-1.2deg)}
+.piket-card:nth-child(3n+2){transform:rotate(.9deg)}
+.piket-card:nth-child(3n){transform:rotate(-.4deg)}
+.piket-card{position:relative;padding:18px 18px 14px;background:var(--panel);border:1px solid var(--line);border-radius:6px;box-shadow:0 1px 0 rgba(43,37,64,.05),0 12px 20px -14px rgba(43,37,64,.35)}
+.piket-card h3{margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--primary);font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-.01em}
+.piket-card ul{list-style:none;counter-reset:urut}
+.piket-card li{counter-increment:urut;display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-weight:500}
+.piket-card li:last-child{border-bottom:none}
+.piket-card li::before{content:counter(urut,decimal-leading-zero);font-size:.78rem;font-weight:700;color:var(--primary)}
+.piket-card.hari-ini{transform:rotate(0);border:2px solid var(--primary);box-shadow:5px 5px 0 var(--accent)}
+.piket-card.hari-ini::after{content:"Hari ini";position:absolute;top:-12px;right:14px;padding:4px 11px;border-radius:999px;background:var(--primary);color:#fff;font-size:.75rem;font-weight:700}
+
+@media (max-width:600px){
+  .Nav-Atas{padding:12px 16px}
+  .header,.piket-header{padding:36px 16px 4px}
+  .card-container,.piket-grid{padding:28px 16px 64px;gap:26px 14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .piket-grid{animation:none}
+  .card{transition:none}
+}
