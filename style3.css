@@ -1,7 +1,24 @@
 /* Tema kalem XII BSMK - dipakai index.html, student.html, piket.html */
 :root{
+  color-scheme:light;
   --bg:#F7F5FA; --panel:#FFFFFF; --line:#E4E0EC;
   --text:#2B2540; --muted:#6B6680; --primary:#5B4F8A; --accent:#B8AED6;
+  --on-primary:#fff; --soft:#ECE8F4; --dot:#D4CEE3; --ctl-bg:rgba(255,255,255,.9); --confetti-base:#EFE9FA;
+}
+/* Mode gelap: otomatis mengikuti HP/laptop, atau pilihan tombol (data-theme) */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#14111F; --panel:#1D1930; --line:#322C4D;
+    --text:#ECE9F7; --muted:#A8A3BE; --primary:#A79CE3; --accent:#4B4275;
+    --on-primary:#1A1530; --soft:#2A2442; --dot:#3D3660; --ctl-bg:rgba(29,25,48,.9); --confetti-base:#2A2442;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#14111F; --panel:#1D1930; --line:#322C4D;
+  --text:#ECE9F7; --muted:#A8A3BE; --primary:#A79CE3; --accent:#4B4275;
+  --on-primary:#1A1530; --soft:#2A2442; --dot:#3D3660; --ctl-bg:rgba(29,25,48,.9); --confetti-base:#2A2442;
 }
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 "Figtree","Segoe UI",system-ui,sans-serif}
@@ -15,7 +32,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-of
 .nav-link{display:flex;gap:6px;list-style:none}
 .nav-link a{display:block;padding:8px 16px;border-radius:999px;color:var(--muted);font-weight:500}
 .nav-link a:hover{color:var(--text)}
-.nav-link a.active{background:var(--primary);color:#fff;font-weight:600}
+.nav-link a.active{background:var(--primary);color:var(--on-primary);font-weight:600}
 
 /* Footer */
 .footer{border-top:1px solid var(--line);padding:20px 24px;text-align:center;color:var(--muted);font-size:14px}
@@ -46,12 +63,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-of
     radial-gradient(circle at 11px 6px,#38BDF8 0 3px,transparent 3.5px) 0 0/16px 16px,
     radial-gradient(circle at 6px 12px,#FACC15 0 3px,transparent 3.5px) 0 0/16px 16px,
     radial-gradient(circle at 13px 13px,#A78BFA 0 3px,transparent 3.5px) 0 0/16px 16px,
-    linear-gradient(#EFE9FA,#EFE9FA);
+    linear-gradient(var(--confetti-base),var(--confetti-base));
   background-origin:border-box;
   background-clip:padding-box,border-box,border-box,border-box,border-box,border-box;
   box-shadow:0 10px 24px -10px rgba(91,79,138,.55);
 }
-.avatar-wrapper{aspect-ratio:1/1;background:#ECE8F4}
+.avatar-wrapper{aspect-ratio:1/1;background:var(--soft)}
 .avatar{display:block;width:100%;height:100%;object-fit:cover}
 .card-content{padding:14px 16px 16px}
 .card-content h3{margin-bottom:4px;font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-size:1.3rem;font-weight:800;letter-spacing:-.01em}
@@ -88,3 +105,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-of
   .piket-grid{animation:none}
   .card{transition:none}
 }
+
+/* Penyesuaian mode gelap untuk slideshow di Home + tombol ganti tema */
+:root .ctl{background:var(--ctl-bg);color:var(--primary)}
+:root .dots button{background:var(--dot)}
+:root .dots button.on{background:var(--primary)}
+.tema-toggle{display:block;padding:8px 12px;border:0;border-radius:999px;background:transparent;font:inherit;line-height:1.6;cursor:pointer}
+.tema-toggle:hover{background:var(--line)}
