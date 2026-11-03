@@ -12,15 +12,20 @@ function searchStudents() {
     const name = title.dataset.name;
 
     const item = card.closest(".card-link") || card;
-    const match = name.toLowerCase().startsWith(keyword);
+    const index = name.toLowerCase().indexOf(keyword);
+    const match = index !== -1;
 
     item.style.display = match ? "" : "none";
 
-    // Beri warna pada huruf yang cocok
+    // Yang diawali keyword tampil paling atas, sisanya di bawahnya
+    item.style.order = keyword && index > 0 ? 1 : 0;
+
+    // Beri warna pada huruf yang cocok, di posisi mana pun
     if (match && keyword) {
       title.innerHTML =
-        '<span class="hl">' + name.slice(0, keyword.length) + "</span>" +
-        name.slice(keyword.length);
+        name.slice(0, index) +
+        '<span class="hl">' + name.slice(index, index + keyword.length) + "</span>" +
+        name.slice(index + keyword.length);
     } else {
       title.textContent = name;
     }
