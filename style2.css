@@ -1,167 +1,288 @@
-/* Reset Dasar & Styling Global */
+/* ============ Token ============ */
+:root {
+    --ink: #0b1b3a;
+    --blue: #0066ff;
+    --paper: #f3f5fb;
+    --mark: #ffd23f;
+    --muted: #5a6785;
+    --line: #d9dff0;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: #f4f6f9;
+    font-family: "Figtree", "Segoe UI", Arial, sans-serif;
+    background-color: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
 }
 
-/* Navigasi Atas */
+/* ============ Navigasi ============ */
 .Nav-Atas {
-    background-color: #0066ff;
-    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 50;
     display: flex;
     align-items: center;
-    padding: 10px 50px;
-    width: 100%;
+    justify-content: space-between;
+    padding: 10px 40px;
+    background-color: var(--blue);
 }
 
 .Logo img {
-    height: 50px;
-    width: auto;
     display: block;
+    height: 44px;
+    width: 44px;
+    object-fit: cover;
     border-radius: 50%;
+    border: 2px solid #fff;
 }
 
 .nav-konten {
     display: flex;
     align-items: center;
-    gap: 25px;
 }
 
 .nav-link {
     display: flex;
+    gap: 6px;
     list-style: none;
-    gap: 25px;
 }
 
 .nav-link a {
-    color: white;
+    display: block;
+    padding: 8px 16px;
+    border-radius: 999px;
+    color: #fff;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
 }
 
 .nav-link a:hover {
-    text-decoration: underline;
+    background-color: rgba(255, 255, 255, 0.18);
 }
 
-/* Bagian Header & Search Bar */
+.nav-link a.active {
+    background-color: #fff;
+    color: var(--blue);
+}
+
+.nav-link a:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 2px;
+}
+
+/* ============ Hero & Search ============ */
 .header {
-    text-align: center;
-    margin: 30px 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 56px 24px 8px;
+    text-align: left;
 }
 
 .header h2 {
-    color: #222;
-    margin-bottom: 12px;
+    font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
 }
 
-/* Styling untuk Kolom Pencarian (Search Bar) */
+.header .sub {
+    margin-top: 10px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--muted);
+}
+
 .search-box-container {
-    margin-top: 15px;
-    text-align: center;
+    position: relative;
+    max-width: 520px;
+    margin-top: 28px;
 }
 
 #studentSearch {
     width: 100%;
-    max-width: 350px;
-    padding: 10px 18px;
-    font-size: 15px;
-    border: 2px solid #ccc;
-    border-radius: 30px;
-    outline: none;
-    transition: all 0.3s ease;
+    padding: 15px 20px 15px 52px;
+    font-family: inherit;
+    font-size: 1.05rem;
+    color: var(--ink);
     background-color: #fff;
-    color: #333;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='%230b1b3a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 18px center;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    box-shadow: 4px 4px 0 var(--ink);
+    outline: none;
+    transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+}
+
+#studentSearch::placeholder {
+    color: #8a96b3;
 }
 
 #studentSearch:focus {
-    border-color: #0066ff;
-    box-shadow: 0 4px 12px rgba(0, 102, 255, 0.15);
+    border-color: var(--blue);
+    box-shadow: 4px 4px 0 var(--blue);
+    transform: translate(-1px, -1px);
 }
 
-/* Container Kartu Siswa */
+#noResult {
+    margin-top: 22px;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+/* ============ Daftar Murid ============ */
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-    gap: 20px;
-    padding: 20px;
-    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px 22px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 36px 24px 80px;
+    animation: rise 0.5s ease-out both;
 }
 
-/* Kartu Profil Siswa */
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+}
+
+/* Kemiringan tipis ala foto yearbook yang ditempel */
+.card-container > :nth-child(3n + 1) { transform: rotate(-1.2deg); }
+.card-container > :nth-child(3n + 2) { transform: rotate(0.9deg); }
+.card-container > :nth-child(3n)     { transform: rotate(-0.4deg); }
+
+.card-container > * {
+    transition: transform 0.2s ease;
+}
+
+.card-container > :hover {
+    transform: rotate(0deg) translateY(-4px);
+}
+
 .card {
-    background-color: #ffffff;
-    border: 2px solid #333;
-    border-radius: 12px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    width: 250px;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    padding: 10px 10px 18px;
+    background-color: #fff;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    text-align: left;
+    box-shadow:
+        0 1px 0 rgba(11, 27, 58, 0.06),
+        0 12px 20px -14px rgba(11, 27, 58, 0.45);
 }
 
 .avatar-wrapper {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 2px solid #333;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 14px;
     overflow: hidden;
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 3px;
+    background-color: #dfe6f7;
 }
 
 .avatar {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
 .card-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    color: #222;
+    margin: 0 4px 6px;
+    font-family: "Bricolage Grotesque", "Segoe UI", Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
 }
 
 .card-content p {
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.4;
+    margin: 0 4px;
+    font-size: 0.92rem;
+    line-height: 1.45;
+    color: var(--muted);
 }
 
-/* Link untuk Card Khusus */
+/* Huruf yang cocok dengan pencarian */
+.hl {
+    padding: 0 2px;
+    border-radius: 3px;
+    background-color: var(--mark);
+    color: var(--ink);
+}
+
+/* Kartu yang bisa diklik (Kevin) */
 .card-link {
+    display: block;
     text-decoration: none;
     color: inherit;
-    display: block;
+    border-radius: 8px;
 }
 
-.card-link:hover .card {
-    cursor: pointer;
-    transform: translateY(-5px);
-    transition: transform 0.2s ease; 
+.card-link .card {
+    position: relative;
 }
 
-.hl {
-  color: #0066ff;
-  background-color: rgba(0, 102, 255, 0.12);
-  border-radius: 3px;
+.card-link .card::after {
+    content: "Buka profil";
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background-color: var(--ink);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+.card-link:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+}
+
+/* ============ HP ============ */
+@media (max-width: 600px) {
+    .Nav-Atas {
+        padding: 10px 16px;
+    }
+
+    .header {
+        padding: 36px 16px 4px;
+    }
+
+    .card-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px 14px;
+        padding: 28px 16px 64px;
+    }
+
+    .card-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .card-content p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
 }
