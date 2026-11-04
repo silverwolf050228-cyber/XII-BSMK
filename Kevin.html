@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kevin - XII BSMK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style3.css">
+  <script src="../mode.js"></script>
+  <style>
+    .profil{max-width:1200px;margin:0 auto;padding:32px 32px 56px}
+    .kembali{display:inline-block;margin-bottom:32px;font-weight:500;color:var(--primary)}
+    .hero{display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start}
+    .foto{flex:1 1 380px;aspect-ratio:4/5;border-radius:28px;background:var(--soft);overflow:hidden}
+    .foto img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-teks{flex:1.2 1 440px}
+    .nama{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-weight:800;font-size:clamp(56px,10vw,112px);line-height:.95;letter-spacing:-.03em}
+    .nama-lengkap{margin-top:16px;font-size:20px;font-weight:600;color:var(--primary)}
+    .julukan{margin:20px 0 36px;font-size:24px;color:var(--muted);max-width:24ch}
+    .info{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+    .info div{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+    .info small{display:block;font-size:14px;color:var(--muted)}
+    .info strong{font-size:20px}
+    .sec{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-weight:800;font-size:clamp(28px,4vw,40px);margin:72px 0 20px}
+    .sec.kecil{font-size:32px;margin:40px 0 8px}
+    .cerita{max-width:56ch;color:var(--muted)}
+    .galeri{display:flex;flex-wrap:wrap;gap:20px}
+    .galeri img,.galeri .ph{flex:1 1 280px;max-width:100%;aspect-ratio:4/3;border-radius:20px}
+    .galeri img{object-fit:cover}
+    .ph{background:var(--soft);color:var(--primary);display:grid;place-items:center;font-weight:600}
+    .qa{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:20px}
+    .qa div{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:28px}
+    .qa small{display:block;font-size:14px;color:var(--muted);margin-bottom:8px}
+    .qa p{font-size:22px;font-weight:600}
+    .chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+    .chips span{padding:10px 20px;border-radius:999px;background:var(--primary);color:var(--on-primary);font-weight:600}
+    @media (max-width:600px){.profil{padding:24px 16px 40px}.hero{gap:32px}.info strong{font-size:18px}}
+  </style>
+</head>
+<body>
+  <header class="Nav-Atas">
+    <div class="Logo"><img src="../logo12B.jpg" alt="Logo"></div>
+    <div class="nav-konten">
+      <ul class="nav-link">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../student.html" class="active">Student</a></li>
+        <li><a href="../piket.html">Piket</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="profil">
+    <a class="kembali" href="../student.html">&larr; Kembali ke Student</a>
+
+    <section class="hero">
+      <div class="foto"><img src="../Foto/4.jpg" alt="Foto Kevin"></div>
+
+      <div class="hero-teks">
+        <h1 class="nama">Kevin</h1>
+        <div class="nama-lengkap">[NAMA LENGKAP KEVIN]</div>
+        <p class="julukan">Admin penyayang, baik, dan peduli kepada teman</p>
+
+        <div class="info">
+          <div><small>Ulang tahun</small><strong>[TANGGAL]</strong></div>
+          <div><small>Hobi</small><strong>[HOBI]</strong></div>
+          <div><small>Jabatan</small><strong>[JABATAN]</strong></div>
+          <div><small>Piket</small><strong>Jumat</strong></div>
+        </div>
+
+        <h2 class="sec kecil">Tentang aku</h2>
+        <p class="cerita">[CERITA SINGKAT TENTANG KEVIN, 2-3 KALIMAT]</p>
+      </div>
+    </section>
+
+    <h2 class="sec">Galeri</h2>
+    <div class="galeri">
+      <!-- Ganti kotak ini dengan: <img src="../Foto/namafile.jpg" alt="Deskripsi foto"> -->
+      <div class="ph">[FOTO 1]</div>
+      <div class="ph">[FOTO 2]</div>
+      <div class="ph">[FOTO 3]</div>
+    </div>
+
+    <h2 class="sec">Tanya jawab kilat</h2>
+    <div class="qa">
+      <div><small>Kalimat andalan</small><p>[JAWABAN]</p></div>
+      <div><small>Kalau lagi bosen</small><p>[JAWABAN]</p></div>
+      <div><small>Makanan favorit</small><p>[JAWABAN]</p></div>
+      <div><small>Cita-cita</small><p>[JAWABAN]</p></div>
+    </div>
+    <div class="chips">
+      <span>[JULUKAN 1]</span>
+      <span>[JULUKAN 2]</span>
+      <span>[JULUKAN 3]</span>
+    </div>
+  </main>
+
+  <footer class="footer">XII BSMK &middot; Web Kelas</footer>
+</body>
+</html>
