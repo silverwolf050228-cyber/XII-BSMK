@@ -127,3 +127,12 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-of
 @media (min-width:601px){
   html{zoom:.9}
 }
+
+
+/* Galeri di halaman profil (Profil/Kevin.html): laptop = 6 foto berderet, HP = 2 per baris (diatur di Kevin.html) */
+@media (min-width:601px){
+  .profil .galeri{grid-template-columns:repeat(6,1fr);max-width:none}
+}
+@media (min-width:601px) and (max-width:900px){
+  .profil .galeri{grid-template-columns:repeat(3,1fr)}
+}
