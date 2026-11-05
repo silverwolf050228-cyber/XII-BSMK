@@ -136,3 +136,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-of
 @media (min-width:601px) and (max-width:900px){
   .profil .galeri{grid-template-columns:repeat(3,1fr)}
 }
+
+/* Galeri profil: di layar laptop lebar, perpanjang ke kanan supaya foto lebih besar (ubah -11% : makin besar angkanya makin melebar; jangan lebih dari -13%) */
+@media (min-width:1280px){
+  .profil .galeri{margin-right:-11%}
+}
