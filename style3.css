@@ -121,3 +121,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--primary);outline-of
 .js-menu .nav-link{flex-direction:column;gap:2px}
 .js-menu .nav-link a{border-radius:8px}
 @media (max-width:600px){.js-menu .nav-konten{right:16px}}
+
+
+/* Perkecil tampilan semua halaman di laptop (ubah angka .9: makin kecil = makin mengecil) */
+@media (min-width:601px){
+  html{zoom:.9}
+}
