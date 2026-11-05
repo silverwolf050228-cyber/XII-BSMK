@@ -25,8 +25,8 @@
     .info strong{font-size:17px}
     .sec{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-weight:800;font-size:clamp(24px,3.5vw,30px);margin:48px 0 16px}
     .sec.kecil{font-size:24px;margin:32px 0 8px}
-    .galeri{display:flex;flex-wrap:wrap;gap:12px}
-    .galeri img,.galeri .ph{flex:0 1 220px;max-width:100%;aspect-ratio:4/3;border-radius:14px}
+    .galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:720px}
+    .galeri img,.galeri .ph{width:100%;aspect-ratio:4/3;border-radius:14px}
     .galeri img{object-fit:cover}
     .ph{background:var(--soft);color:var(--primary);display:grid;place-items:center;font-weight:600}
     .qa{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
@@ -35,7 +35,12 @@
     .qa p{font-size:17px;font-weight:600}
     .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
     .chips span{padding:6px 14px;border-radius:999px;background:var(--primary);color:var(--on-primary);font-size:15px;font-weight:600}
-    @media (max-width:600px){.profil{padding:24px 16px 40px}.hero{gap:32px}.info strong{font-size:18px}}
+    @media (max-width:600px){
+      .profil{padding:24px 16px 40px}
+      .hero{gap:32px}
+      .info strong{font-size:16px}
+      .galeri{grid-template-columns:1fr;max-width:none}
+    }
   </style>
 </head>
 <body>
@@ -63,7 +68,7 @@
 
         <div class="info">
           <div><small>Ulang tahun</small><strong>05-Februari-2009</strong></div>
-          <div><small>Hobi</small><strong>Badminton & Main Game</strong></div>
+          <div><small>Hobi</small><strong>Badminton &amp; Main Game</strong></div>
           <div><small>Jabatan</small><strong>Admin</strong></div>
           <div><small>aa</small><strong></strong></div>
         </div>
