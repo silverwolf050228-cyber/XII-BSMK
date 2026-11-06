@@ -27,6 +27,14 @@ h1{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-size:clamp
 .info a:hover{border-left-color:var(--primary)}
 .info h2{margin:0 0 6px;font-size:18px}
 .info p{margin:0;color:var(--muted)}
+.slide img{cursor:zoom-in}
+.slide img:focus-visible{outline:3px solid var(--primary);outline-offset:-6px}
+.slide p{pointer-events:none}
+#lightbox{margin:0;padding:16px;border:0;width:100%;height:100%;max-width:none;max-height:none;background:transparent;box-sizing:border-box}
+#lightbox[open]{display:flex;align-items:center;justify-content:center}
+#lightbox::backdrop{background:rgba(10,8,20,.88)}
+#lightbox img{max-width:100%;max-height:100%;object-fit:contain;border-radius:12px}
+#lb-tutup{position:fixed;top:16px;right:16px;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.9);color:#2B2540;font-size:26px;line-height:1;cursor:pointer}
 </style>
 </head>
 <body>
@@ -80,6 +88,29 @@ h1{font-family:"Bricolage Grotesque","Segoe UI",Arial,sans-serif;font-size:clamp
   document.getElementById('prev').onclick=function(){go(i-1)};
   document.getElementById('next').onclick=function(){go(i+1)};
   go(0);
+})();
+</script>
+
+<dialog id="lightbox" aria-label="Foto diperbesar">
+  <button type="button" id="lb-tutup" aria-label="Tutup foto">&times;</button>
+  <img id="lb-img" alt="">
+</dialog>
+
+<script>
+(function () {
+  var dlg = document.getElementById("lightbox"), besar = document.getElementById("lb-img");
+  function buka(im) { besar.src = im.currentSrc || im.src; besar.alt = im.alt; dlg.showModal(); }
+  document.querySelectorAll(".slide img").forEach(function (im) {
+    im.tabIndex = 0;
+    im.setAttribute("role", "button");
+    im.setAttribute("aria-label", "Perbesar foto: " + (im.alt || ""));
+    im.addEventListener("click", function () { buka(im); });
+    im.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); buka(im); }
+    });
+  });
+  document.getElementById("lb-tutup").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
 })();
 </script>
 </body>
